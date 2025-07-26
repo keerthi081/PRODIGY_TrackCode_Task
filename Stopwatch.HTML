@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stopwatch</title>
+  <style>
+    body {
+     font-family: 'Segoe UI', sans-serif;
+  background: url('https://www.transparenttextures.com/patterns/skulls.png'), linear-gradient(to right, #e0f7fa, #b2ebf2);
+  background-repeat: repeat;
+  background-size: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+    }
+
+    h1 {
+      color: #d63384;
+      margin-bottom: 30px;
+    }
+
+    .stopwatch {
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .display {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #e91e63;
+      letter-spacing: 2px;
+    }
+
+    .buttons button {
+      font-size: 1em;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .start { background-color: #81c784; color: white; }
+    .pause { background-color: #ffb74d; color: white; }
+    .reset { background-color: #e57373; color: white; }
+    .lap { background-color: #64b5f6; color: white; }
+
+    .buttons button:hover {
+      opacity: 0.85;
+    }
+
+    .laps {
+      margin-top: 20px;
+      max-height: 150px;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .laps li {
+      list-style: none;
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Stopwatch</h1>
+  <div class="stopwatch">
+    <div class="display" id="display">00:00:00</div>
+
+    <div class="buttons">
+      <button class="start" onclick="startStopwatch()">Start</button>
+      <button class="pause" onclick="pauseStopwatch()">Pause</button>
+      <button class="reset" onclick="resetStopwatch()">Reset</button>
+      <button class="lap" onclick="recordLap()">Lap</button>
+    </div>
+
+    <ul class="laps" id="laps"></ul>
+  </div>
+
+  <script>
+    let startTime = 0;
+    let elapsedTime = 0;
+    let timerInterval;
+    let isRunning = false;
+
+    const display = document.getElementById("display");
+    const lapsList = document.getElementById("laps");
+
+    function timeToString(time) {
+      let mins = Math.floor(time / 60000);
+      let secs = Math.floor((time % 60000) / 1000);
+      let ms = Math.floor((time % 1000) / 10);
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}:${ms.toString().padStart(2, '0')}`;
+    }
+
+    function printTime() {
+      display.textContent = timeToString(elapsedTime);
+    }
+
+    function startStopwatch() {
+      if (!isRunning) {
+        startTime = Date.now() - elapsedTime;
+        timerInterval = setInterval(() => {
+          elapsedTime = Date.now() - startTime;
+          printTime();
+        }, 10); // update every 10 ms
+        isRunning = true;
+      }
+    }
+
+    function pauseStopwatch() {
+      clearInterval(timerInterval);
+      isRunning = false;
+    }
+
+    function resetStopwatch() {
+      clearInterval(timerInterval);
+      elapsedTime = 0;
+      isRunning = false;
+      display.textContent = "00:00:00";
+      lapsList.innerHTML = "";
+    }
+
+    function recordLap() {
+      if (elapsedTime > 0) {
+        const lapTime = timeToString(elapsedTime);
+        const li = document.createElement("li");
+        li.textContent = `Lap ${lapsList.children.length + 1}: ${lapTime}`;
+        lapsList.appendChild(li);
+      }
+    }
+  </script>
+</body>
+</html>
