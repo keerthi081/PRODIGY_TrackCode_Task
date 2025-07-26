@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karting Shop (KP)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: url('/mnt/data/5e24bed2-6bb6-4b5f-9e15-3602888cea91.png') no-repeat center center fixed;
+      background-size: cover;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #ffffffd9;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+      z-index: 999;
+      transition: background-color 0.3s;
+    }
+
+    nav.scrolled {
+      background-color: #ffd3e0;
+    }
+
+    nav img.logo {
+      height: 50px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #444;
+      font-weight: bold;
+      padding: 8px 12px;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: white;
+      background-color: #ff8a9a;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 100px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .home {
+      background-color: #ffe6ea;
+      color: #333;
+      text-align: center;
+    }
+
+    .features {
+      background-color: #ffd8e4;
+      color: #333;
+    }
+
+    .about {
+      background-color: #fcdde9;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .about img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .about .text {
+      flex: 1;
+    }
+
+    .contact {
+      background-color: #ffeef4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+
+    a {
+      color: #e91e63;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+.brand-name {
+  font-size: 1.4em;
+  color: #e91e63;
+  font-weight: bold;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffc7d6;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+ <nav id="navbar">
+  <div class="brand">
+    <img src="C:\Users\Sunitha\OneDrive\Documents\......jpg" alt="KP Logo" class="logo" />
+    <span class="brand-name">Karting Shop (KP)</span>
+  </div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Home Section -->
+  <section id="home" class="home">
+    <div class="container">
+      <h1>Welcome to Karting Shop (KP)</h1>
+      <p>This is a shopping page for people to shop from home and receive the items within days or even in hours.</p>
+    </div>
+     <div class="home-images">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtlglS02vaO9-zX7l2cJhQZgomVJ2IbbhHNw&s" alt="Shopping Illustration 1">
+      <img src="https://www.shutterstock.com/image-illustration/3d-render-online-shopping-site-260nw-2493257833.jpg" alt="Shopping Illustration 2">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Our Features</h2>
+      <p>We give you the features where you can place order of one item or multiple items at the same time. We provide you the information about your shipping details like order tracking, how many days to arrive, exact time to receive order, contact info of the delivery person etc.</p>
+      <img src="data:image/jpeg;base64,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" alt="Courier Tracking System" class="feature-img"/>
+       </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container" style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+      <div class="text">
+        <h2>About KP</h2>
+        <p>Karting Shop (KP) is like an online shop where you can purchase any item at any time from anywhere for reasonable prices. You can add the products to the wishlist which you want to buy later. It's an all-in-one shop where you can find all basic needs one requires. You can also earn points after placing orders. These points will be based on the type of products you purchase and help you receive special discounts beyond the seasonal ones.</p>
+      </div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHPrlS_GfTgLmyhDdjgsG7cJ3rYTtxekepuw&s" alt="About KP Image">
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or complaints, feel free to reach out to the contacts below:</p>
+      <p>Email: <a href="mailto:Kartingshopkp@gmail.com">Kartingshopkp@gmail.com</a></p>
+      <p>Contact: 0126849037</p>
+      <p>We are here to help you anytime you need. 😊</p>
+      <img src="  data:image/jpeg;base64,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" alt="Contact Icon" class="contact-icon"/>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Karting Shop (KP). All rights reserved.
+  </footer>
+
+  <!-- Scroll Script -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
